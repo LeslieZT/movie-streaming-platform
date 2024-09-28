@@ -1,17 +1,13 @@
 import { Movie } from "./Movie.type";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClockFour } from "@fortawesome/free-solid-svg-icons";
-import { getImageUrl } from "./Movies.service";
+import { getImageUrl } from "../../services/Movies.service";
 
 export const MovieCard = ({ data }: { data: Movie }) => {
   const imgUrl = getImageUrl(data.poster_path);
   return (
     <div className="flex flex-col w-[256px] ">
-      <img
-        src={imgUrl}
-        alt={data.title}
-        className="w-[256px] h-[344px] mb-4 rounded-md"
-      />
+      <img src={imgUrl} alt={data.title} className="w-[256px] h-[344px] mb-4 rounded-md" />
       <div className="flex justify-between items-center gap-4">
         <h2 className="text-white text-left text-xs font-bold">{data.title}</h2>
         <div className="flex gap-1">

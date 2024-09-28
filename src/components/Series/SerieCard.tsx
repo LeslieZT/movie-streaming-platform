@@ -1,15 +1,11 @@
+import { getImageUrl } from "../../services/Movies.service";
 import { Serie } from "./Serie.type";
-import { getImageUrl } from "./Serie.service";
 
 export const SerieCard = ({ data }: { data: Serie }) => {
   const imgUrl = getImageUrl(data.poster_path);
   return (
     <div className="flex flex-col w-[256px] ">
-      <img
-        src={imgUrl}
-        alt={data.name}
-        className="w-[256px] h-[344px] mb-4 rounded-md"
-      />
+      <img src={imgUrl} alt={data.name} className="w-[256px] h-[344px] mb-4 rounded-md" />
       <div className="flex justify-between items-center gap-4">
         <h2 className="text-white text-left text-xs font-bold">{data.name}</h2>
         <div className="flex gap-1">

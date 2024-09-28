@@ -3,8 +3,8 @@ import { MovieCard } from "../Movie/MovieCard";
 import { Movie } from "../Movie/Movie.type";
 import { Serie } from "../Series/Serie.type";
 import { SerieCard } from "../Series/SerieCard";
-import { getRecommendedMovies } from "../Movie/Movies.service";
-import { getRecommendedSeries } from "../Series/Serie.service";
+import { getRecommendedMovies } from "../../services/Movies.service";
+import { getRecommendedSeries } from "../../services/Serie.service";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 

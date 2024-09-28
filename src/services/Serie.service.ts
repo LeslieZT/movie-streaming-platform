@@ -1,5 +1,5 @@
-import { API_KEY, BASE_URL } from "../../constants/constants";
-import { Serie } from "./Serie.type";
+import { Serie } from "../components/Series/Serie.type";
+import { API_KEY, BASE_URL } from "../constants/constants";
 
 interface ResponseListMovieAPI {
   results: Serie[];

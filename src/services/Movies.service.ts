@@ -1,5 +1,5 @@
-import { Movie } from "./Movie.type";
-import { API_KEY, BASE_URL } from "../../constants/constants";
+import { Movie } from "../components/Movie/Movie.type";
+import { API_KEY, BASE_URL } from "../constants/constants";
 
 interface ResponseListMovieAPI {
   results: Movie[];

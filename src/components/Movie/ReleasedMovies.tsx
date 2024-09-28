@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Movie } from "./Movie.type";
 import { MovieCard } from "./MovieCard";
-import { getReleasedMovies } from "./Movies.service";
+import { getReleasedMovies } from "../../services/Movies.service";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 

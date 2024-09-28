@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { getReleasedSeries } from "./Serie.service";
-import { Serie } from "./Serie.type";
-import { SerieCard } from "./SerieCard";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { getReleasedSeries } from "../../services/Serie.service";
+import { Serie } from "./Serie.type";
+import { SerieCard } from "./SerieCard";
 
 export const ReleasedSeries = () => {
-  const [Series, setSeries] = useState<Serie[]>([]);
+  const [series, setSeries] = useState<Serie[]>([]);
   useEffect(() => {
     const fetchSeries = async () => {
       const SeriesData = await getReleasedSeries();
@@ -26,7 +26,7 @@ export const ReleasedSeries = () => {
         </div>
       </div>
       <div className="flex flex-wrap justify-between gap-16">
-        {Series.map((serie) => (
+        {series.map((serie) => (
           <SerieCard key={serie.id} data={serie} />
         ))}
       </div>
