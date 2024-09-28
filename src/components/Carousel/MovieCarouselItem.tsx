@@ -19,8 +19,8 @@ export const MovieCarouselItem = ({ data }: { data: MovieCarouselItemProps }) =>
         </div>
       </div>
       <div className="absolute bottom-1/4 left-52 text-white">
-        <h2 className="text-4xl font-bold mb-4">{data.title}</h2>
-        <div className="flex items-center space-x-8 mb-2">
+        <h2 className="text-4xl font-bold mb-6">{data.title}</h2>
+        <div className="flex items-center space-x-8 mb-8">
           <div className="flex space-x-3">
             {data.genres.map((genre, index) => (
               <div key={index} className="bg-white  px-3 py-2 rounded-full text-sm">
@@ -29,7 +29,7 @@ export const MovieCarouselItem = ({ data }: { data: MovieCarouselItemProps }) =>
             ))}
           </div>
 
-          <div className="flex space-x-4 mb-10">
+          <div className="flex space-x-4">
             <span className="flex items-center">
               <FontAwesomeIcon icon={faCalendar} className="w-4 h-4 mr-2" />
               {data.year}

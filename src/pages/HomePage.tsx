@@ -1,4 +1,4 @@
-import { MovieCarousel } from "../components/carrusel/MovieCarousel";
+import { MovieCarousel } from "../components/Carousel/MovieCarousel";
 import { ReleasedMovies } from "../components/Movie/ReleasedMovies";
 import { ReleasedSeries } from "../components/Series/ReleasedSeries";
 import { Recommended } from "../components/Recommended/Recommended";
