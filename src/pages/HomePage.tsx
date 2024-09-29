@@ -1,13 +1,17 @@
 import { MovieCarousel } from "../components/Carousel/MovieCarousel";
-import { ReleasedMovies } from "../components/Movie/ReleasedMovies";
-import { ReleasedSeries } from "../components/Series/ReleasedSeries";
-import { Recommended } from "../components/Recommended/Recommended";
+import { ReleasedMovies } from "../components/Home/ReleasedMovies";
+import { ReleasedSeries } from "../components/Home/ReleasedSeries";
+import { Recommended } from "../components/Home/Recommended";
+import { Trending } from "../components/Home/Trending";
+import RecentlyUpdatedShows from "../components/Home/RecentlyUpdated";
 
 export const HomePage = () => {
   return (
     <>
       <MovieCarousel />
-      <div className="w-[70%] m-auto flex flex-col gap-16">
+      <div className="lg:w-[70%] lg:m-auto sm:mx-4 flex flex-col gap-16">
+        <RecentlyUpdatedShows />
+        <Trending />
         <ReleasedMovies />
         <ReleasedSeries />
         <Recommended />

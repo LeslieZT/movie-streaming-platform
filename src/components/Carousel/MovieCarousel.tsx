@@ -7,7 +7,7 @@ export const MovieCarousel = () => {
   const movies = [
     {
       title: "Avatar: The Way of Water",
-      image: "'./src/assets/avatar.jpeg'",
+      image: "./src/assets/avatar.jpeg",
       genres: ["Action", "Adventure", "Science Fiction"],
       year: 2022,
       duration: "3:12:00",
@@ -17,7 +17,7 @@ export const MovieCarousel = () => {
     },
     {
       title: "Movie 2",
-      image: "'./src/assets/69c97d0b10eb9431b4cf84df3377b246.png'",
+      image: "./src/assets/69c97d0b10eb9431b4cf84df3377b246.png",
       genres: ["Action", "Adventure", "Science Fiction"],
       year: 2022,
       duration: "3:12:00",
@@ -55,7 +55,7 @@ export const MovieCarousel = () => {
         <FontAwesomeIcon icon={faChevronRight} onClick={nextSlide} className="w-6 h-6 text-white" />
       </div>
       {/* Indicadores */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-2">
         {movies.map((_, index) => (
           <div
             key={index}

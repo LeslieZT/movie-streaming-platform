@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getReleasedSeries } from "../../services/Serie.service";
-import { Serie } from "./Serie.type";
-import { SerieCard } from "./SerieCard";
+import { Serie } from "../../types/Serie.type";
+import { SerieCard } from "../Card/SerieCard";
+import { QuarterGrid } from "../Section/QuarterGrid";
 
 export const ReleasedSeries = () => {
   const [series, setSeries] = useState<Serie[]>([]);
@@ -25,11 +26,11 @@ export const ReleasedSeries = () => {
           <FontAwesomeIcon icon={faArrowRight} />
         </div>
       </div>
-      <div className="flex flex-wrap justify-between gap-16">
+      <QuarterGrid>
         {series.map((serie) => (
           <SerieCard key={serie.id} data={serie} />
         ))}
-      </div>
+      </QuarterGrid>
     </section>
   );
 };

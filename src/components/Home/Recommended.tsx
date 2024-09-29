@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
-import { MovieCard } from "../Movie/MovieCard";
-import { Movie } from "../Movie/Movie.type";
-import { Serie } from "../Series/Serie.type";
-import { SerieCard } from "../Series/SerieCard";
+import { MovieCard } from "../Card/MovieCard";
+import { Movie } from "../../types/Movie.type";
+import { Serie } from "../../types/Serie.type";
+import { SerieCard } from "../Card/SerieCard";
 import { getRecommendedMovies } from "../../services/Movies.service";
 import { getRecommendedSeries } from "../../services/Serie.service";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { QuarterGrid } from "../Section/QuarterGrid";
 
 const MoviesList = ({ movies }: { movies: Movie[] }) => (
   <>
@@ -67,7 +68,7 @@ export const Recommended = () => {
           <FontAwesomeIcon icon={faArrowRight} />
         </div>
       </div>
-      <div className="contente-recommended flex flex-wrap justify-between gap-10">
+      <QuarterGrid>
         {(() => {
           switch (showing) {
             case "movies":
@@ -78,7 +79,7 @@ export const Recommended = () => {
               return <MoviesList movies={data as Movie[]} />;
           }
         })()}
-      </div>
+      </QuarterGrid>
     </section>
   );
 };

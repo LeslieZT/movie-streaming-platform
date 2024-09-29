@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock, faPlay, faStar } from "@fortawesome/free-solid-svg-icons";
 import { faCalendar } from "@fortawesome/free-solid-svg-icons/faCalendar";
-import { MovieCarouselItemProps } from "./MovieCarousel.type";
+import { MovieCarouselItemProps } from "../../types/MovieCarousel.type";
 
 export const MovieCarouselItem = ({ data }: { data: MovieCarouselItemProps }) => {
   return (
@@ -18,9 +18,9 @@ export const MovieCarouselItem = ({ data }: { data: MovieCarouselItemProps }) =>
           </button>
         </div>
       </div>
-      <div className="absolute bottom-1/4 left-52 text-white">
+      <div className="absolute bottom-16 lg:bottom-1/4 lg:left-52 text-white">
         <h2 className="text-4xl font-bold mb-6">{data.title}</h2>
-        <div className="flex items-center space-x-8 mb-8">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:space-x-8 mb-8">
           <div className="flex space-x-3">
             {data.genres.map((genre, index) => (
               <div key={index} className="bg-white  px-3 py-2 rounded-full text-sm">
