@@ -1,3 +1,11 @@
+import { useParams } from "react-router-dom";
+import { DetailMovie } from "../components/DetailMovie/DetailMovie";
+
 export const DetailMoviePage = () => {
-  return <div>DetailMoviePage</div>;
+  const { id } = useParams();
+  return (
+    <>
+      <DetailMovie />
+    </>
+  );
 };
