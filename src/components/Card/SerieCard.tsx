@@ -1,4 +1,4 @@
-import { getImageUrl } from "../../services/Movies.service";
+import { getImageUrl } from "../../services/image.service";
 import { Serie } from "../../types/Serie.type";
 
 export const SerieCard = ({ data }: { data: Serie }) => {

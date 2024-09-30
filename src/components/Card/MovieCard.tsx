@@ -1,8 +1,8 @@
 import { Movie } from "../../types/Movie.type";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClockFour } from "@fortawesome/free-solid-svg-icons";
-import { getImageUrl } from "../../services/Movies.service";
 import { Link } from "react-router-dom";
+import { getImageUrl } from "../../services/image.service";
 
 export const MovieCard = ({ data }: { data: Movie }) => {
   const imgUrl = getImageUrl(data.poster_path);

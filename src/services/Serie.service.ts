@@ -18,7 +18,3 @@ export const getRecommendedSeries = async (): Promise<ResponseListMovieAPI> => {
   const result = await response.json();
   return result;
 };
-
-export const getImageUrl = (path: string) => {
-  return `https://image.tmdb.org/t/p/w500${path}`;
-};

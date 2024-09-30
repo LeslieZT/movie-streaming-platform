@@ -1,7 +1,7 @@
 import { Movie } from "../../types/Movie.type";
-import { getImageUrl } from "../../services/Movies.service";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock, faPlayCircle, faStar } from "@fortawesome/free-solid-svg-icons";
+import { getImageUrl } from "../../services/image.service";
 
 export const TrendingCard = ({ data }: { data: Movie }) => {
   const imgUrl = getImageUrl(data.poster_path);
