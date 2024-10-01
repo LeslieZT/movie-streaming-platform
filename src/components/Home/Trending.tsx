@@ -1,22 +1,15 @@
-import { useEffect, useState } from "react";
-import { Movie } from "../../types/Movie.type";
-import { getReleasedMovies } from "../../services/Movies.service";
+import { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { TrendingCard } from "../Card/TrendingCard";
 import { ThirdGrid } from "../Section/ThirdGrid";
+import { useTrendingMovies } from "../../hooks/useTrendingMovies";
+import { InitialLoadContext } from "../../context/InitialLoadContext";
 
 export const Trending = () => {
-  const [movies, setMovies] = useState<Movie[]>([]);
+  const { movieGenres } = useContext(InitialLoadContext);
 
-  useEffect(() => {
-    const fetchMovies = async () => {
-      const moviesData = await getReleasedMovies();
-      const first4Elements = moviesData.results.slice(0, 3);
-      setMovies(first4Elements);
-    };
-    fetchMovies();
-  }, []);
+  const { results: movies } = useTrendingMovies(movieGenres);
 
   return (
     <section>

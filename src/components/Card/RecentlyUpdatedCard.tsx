@@ -1,13 +1,13 @@
-import { RecentlyUpdateItemData } from "../../types/RecentlyUpdate";
+import { RecentlyUpdateSerie } from "../../types/Serie.type";
 
-export const RecentlyUpdatedCard = ({ item }: { item: RecentlyUpdateItemData }) => {
+export const RecentlyUpdatedCard = ({ data }: { data: RecentlyUpdateSerie }) => {
   return (
-    <div key={item.id} className="flex items-center gap-2">
-      <img src={item.imageUrl} alt={item.title} className="w-[80px] h-[120px] object-cover rounded-lg" />
-      <div className="">
-        <h3 className="font-bold text-base">{item.title}</h3>
-        <p className="text-sm text-gray-400">{item.series}</p>
-        <p className="text-sm text-gray-400">{item.airDate}</p>
+    <div key={data.id} className="flex gap-2 flex-shrink-0 w-[300px]">
+      <img src={data.posterPath} alt={data.name} className="w-[80px] h-[120px] object-cover rounded-lg" />
+      <div className="w-f">
+        <h3 className="font-medium text-base text-white">{data.name}</h3>
+        <p className="text-sm text-gray-400">{data.overview.substring(0, 50)}</p>
+        <p className="text-sm text-gray-400">{data.firtAirDate}</p>
       </div>
     </div>
   );

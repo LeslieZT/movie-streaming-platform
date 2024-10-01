@@ -1,21 +1,12 @@
-import { useEffect, useState } from "react";
-import { Movie } from "../../types/Movie.type";
 import { MovieCard } from "../Card/MovieCard";
-import { getReleasedMovies } from "../../services/Movies.service";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { QuarterGrid } from "../Section/QuarterGrid";
+import { useReleasedMovies } from "../../hooks/useReleasedMovies";
 
 export const ReleasedMovies = () => {
-  const [movies, setMovies] = useState<Movie[]>([]);
-  useEffect(() => {
-    const fetchMovies = async () => {
-      const moviesData = await getReleasedMovies();
-      const first4Elements = moviesData.results.slice(0, 4);
-      setMovies(first4Elements);
-    };
-    fetchMovies();
-  }, []);
+  const { results: movies } = useReleasedMovies();
 
   return (
     <section>

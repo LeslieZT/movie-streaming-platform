@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { MovieGenres } from "../../types/Genre.type";
-import { getMovieGenres } from "../../services/genre.service";
+import { MovieGenreAPI, MovieGenres } from "../types/Genre.type";
+import { getMovieGenres } from "../services/genre.service";
 
 export const useMovieGenres = () => {
   const [results, setResults] = useState<MovieGenres>({});
@@ -9,7 +9,11 @@ export const useMovieGenres = () => {
     const loadMovieGenresData = async () => {
       try {
         const response = await getMovieGenres();
-        setResults(response);
+        const result: MovieGenres = {};
+        response.forEach((element: MovieGenreAPI) => {
+          result[element.id] = element;
+        });
+        setResults(result);
       } catch (error) {
         console.error("Error cargando los datos maestros:", error);
       }

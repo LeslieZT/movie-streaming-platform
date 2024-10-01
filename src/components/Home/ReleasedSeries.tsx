@@ -1,21 +1,11 @@
-import { useEffect, useState } from "react";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { getReleasedSeries } from "../../services/Serie.service";
-import { Serie } from "../../types/Serie.type";
 import { SerieCard } from "../Card/SerieCard";
 import { QuarterGrid } from "../Section/QuarterGrid";
+import { useReleasedSeries } from "../../hooks/useReleasedSeries";
 
 export const ReleasedSeries = () => {
-  const [series, setSeries] = useState<Serie[]>([]);
-  useEffect(() => {
-    const fetchSeries = async () => {
-      const SeriesData = await getReleasedSeries();
-      const first4Elements = SeriesData.results.slice(0, 4);
-      setSeries(first4Elements);
-    };
-    fetchSeries();
-  }, []);
+  const { results: series } = useReleasedSeries();
 
   return (
     <section>

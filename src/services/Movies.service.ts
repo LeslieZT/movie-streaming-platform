@@ -1,20 +1,33 @@
-import { Movie } from "../types/Movie.type";
-import { API_KEY, BASE_URL } from "../constants/constants";
+import { MovieAPI } from "../types/Movie.type";
+import { get } from "../utils/AxiosClient";
 
 interface ResponseListMovieAPI {
-  results: Movie[];
+  results: MovieAPI[];
 }
 
-export const getReleasedMovies = async (): Promise<ResponseListMovieAPI> => {
-  const URL = `${BASE_URL}/movie/upcoming?api_key=${API_KEY}`;
-  const response = await fetch(URL);
-  const result = await response.json();
-  return result;
+export const getReleasedMovies = async (options?: Record<string, unknown>) => {
+  try {
+    const data = await get<ResponseListMovieAPI>("/movie/upcoming", { ...options });
+    return data.results;
+  } catch (error) {
+    throw new Error(`Error - /movie/upcoming ${error.message}`);
+  }
 };
 
-export const getRecommendedMovies = async (): Promise<ResponseListMovieAPI> => {
-  const URL = `${BASE_URL}/movie/popular?api_key=${API_KEY}`;
-  const response = await fetch(URL);
-  const result = await response.json();
-  return result;
+export const getRecommendedMovies = async (options?: Record<string, unknown>) => {
+  try {
+    const data = await get<ResponseListMovieAPI>("/movie/popular", { ...options });
+    return data.results;
+  } catch (error) {
+    throw new Error(`Error - /movie/popular ${error.message}`);
+  }
+};
+
+export const getTrendingMovies = async (options?: Record<string, unknown>) => {
+  try {
+    const data = await get<ResponseListMovieAPI>("/trending/movie/day", { ...options });
+    return data.results;
+  } catch (error) {
+    throw new Error(`Error - /movie/popular ${error.message}`);
+  }
 };

@@ -1,4 +1,4 @@
-import { useMovieGenres } from "../hooks/genre/useMovieGenres";
+import { useMovieGenres } from "../hooks/useMovieGenres";
 import { InitialLoadContext } from "./InitialLoadContext";
 
 export const InitialLoadContextProvider = ({ children }: { children: React.ReactNode }) => {

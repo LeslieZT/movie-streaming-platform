@@ -3,93 +3,16 @@
 import { useState, useRef, useEffect } from "react";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { RecentlyUpdateItemData } from "../../types/RecentlyUpdate";
 import { RecentlyUpdatedCard } from "../Card/RecentlyUpdatedCard";
-
-const shows: RecentlyUpdateItemData[] = [
-  {
-    id: "001",
-    title: "The Flash",
-    series: "Series/S 2/EP 9",
-    airDate: "11/05/23",
-    imageUrl: "./src/assets/avatar.jpeg",
-  },
-  {
-    id: "002",
-    title: "Fubar",
-    series: "Series/S 1/EP 8",
-    airDate: "11/05/23",
-    imageUrl: "./src/assets/avatar.jpeg",
-  },
-  {
-    id: "003",
-    title: "Manifest",
-    series: "Series/S 4/EP 12",
-    airDate: "11/05/23",
-    imageUrl: "./src/assets/avatar.jpeg",
-  },
-  {
-    id: "004",
-    title: "Stranger Things",
-    series: "Series/S 4/EP 9",
-    airDate: "12/05/23",
-    imageUrl: "./src/assets/avatar.jpeg",
-  },
-  {
-    id: "005",
-    title: "The Witcher",
-    series: "Series/S 3/EP 1",
-    airDate: "13/05/23",
-    imageUrl: "./src/assets/avatar.jpeg",
-  },
-  {
-    id: "006",
-    title: "Bridgerton",
-    series: "Series/S 2/EP 8",
-    airDate: "14/05/23",
-    imageUrl: "./src/assets/avatar.jpeg",
-  },
-  {
-    id: "007",
-    title: "The Crown",
-    series: "Series/S 5/EP 10",
-    airDate: "15/05/23",
-    imageUrl: "./src/assets/avatar.jpeg",
-  },
-  {
-    id: "008",
-    title: "Silo",
-    series: "Series/S 1/EP 10",
-    airDate: "11/05/23",
-    imageUrl: "./src/assets/avatar.jpeg",
-  },
-  {
-    id: "009",
-    title: "Bridgerton",
-    series: "Series/S 2/EP 8",
-    airDate: "14/05/23",
-    imageUrl: "./src/assets/avatar.jpeg",
-  },
-  {
-    id: "010",
-    title: "The Crown",
-    series: "Series/S 5/EP 10",
-    airDate: "15/05/23",
-    imageUrl: "./src/assets/avatar.jpeg",
-  },
-  {
-    id: "011",
-    title: "Silo",
-    series: "Series/S 1/EP 10",
-    airDate: "11/05/23",
-    imageUrl: "./src/assets/avatar.jpeg",
-  },
-];
+import { useRecentlyUpdateSeries } from "../../hooks/useRecentlyUpdatedSeries";
 
 export default function RecentlyUpdatedShows() {
   const [startIndex, setStartIndex] = useState(0);
   const [visibleItems, setVisibleItems] = useState(4);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const { results: shows } = useRecentlyUpdateSeries();
+  console.log(shows, "ggg");
 
   useEffect(() => {
     const handleResize = () => {
@@ -138,7 +61,7 @@ export default function RecentlyUpdatedShows() {
 
         <div ref={containerRef} className="flex justify-around overflow-hidden w-full">
           {visibleShows.map((show) => (
-            <RecentlyUpdatedCard item={show} />
+            <RecentlyUpdatedCard data={show} key={show.id} />
           ))}
         </div>
 

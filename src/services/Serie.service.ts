@@ -1,20 +1,33 @@
-import { Serie } from "../types/Serie.type";
-import { API_KEY, BASE_URL } from "../constants/constants";
+import { SerieAPI } from "../types/Serie.type";
+import { get } from "../utils/AxiosClient";
 
-interface ResponseListMovieAPI {
-  results: Serie[];
+interface ResponseListSerieAPI {
+  results: SerieAPI[];
 }
 
-export const getReleasedSeries = async (): Promise<ResponseListMovieAPI> => {
-  const URL = `${BASE_URL}/tv/on_the_air?api_key=${API_KEY}`;
-  const response = await fetch(URL);
-  const result = await response.json();
-  return result;
+export const getReleasedSeries = async (options?: Record<string, unknown>) => {
+  try {
+    const data = await get<ResponseListSerieAPI>("/tv/top_rated", { ...options });
+    return data.results;
+  } catch (error) {
+    throw new Error(`Error - /tv/top_rated ${error.message}`);
+  }
 };
 
-export const getRecommendedSeries = async (): Promise<ResponseListMovieAPI> => {
-  const URL = `${BASE_URL}/tv/popular?api_key=${API_KEY}`;
-  const response = await fetch(URL);
-  const result = await response.json();
-  return result;
+export const getRecommendedSeries = async (options?: Record<string, unknown>) => {
+  try {
+    const data = await get<ResponseListSerieAPI>("/tv/popular", { ...options });
+    return data.results;
+  } catch (error) {
+    throw new Error(`Error - /tv/tv/popular${error.message}`);
+  }
+};
+
+export const getRecentlyUpdateSeries = async (options?: Record<string, unknown>) => {
+  try {
+    const data = await get<ResponseListSerieAPI>("/tv/on_the_air", { ...options });
+    return data.results;
+  } catch (error) {
+    throw new Error(`Error - /tv/on_the_air${error.message}`);
+  }
 };

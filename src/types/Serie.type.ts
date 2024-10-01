@@ -1,4 +1,4 @@
-export interface Serie {
+export interface SerieAPI {
   adult: boolean;
   backdrop_path: string;
   genre_ids: number[];
@@ -13,4 +13,20 @@ export interface Serie {
   name: string;
   vote_average: number;
   vote_count: number;
+}
+
+export interface Serie {
+  id: number;
+  firtAirDate: string;
+  name: string;
+  posterPath: string;
+  backdroPath: string;
+  voteAverage: number;
+  voteCount: number;
+  popularity: number;
+  originalLanguage: string;
+}
+
+export interface RecentlyUpdateSerie extends Serie {
+  overview: string;
 }

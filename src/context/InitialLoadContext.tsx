@@ -2,7 +2,7 @@ import { createContext } from "react";
 import { MovieGenres } from "../types/Genre.type";
 
 export interface InitialLoadContextParams {
-  movieGenres: Record<string, MovieGenres>;
+  movieGenres: MovieGenres;
 }
 
 const initialState: InitialLoadContextParams = {

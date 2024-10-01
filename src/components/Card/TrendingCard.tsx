@@ -1,14 +1,12 @@
-import { Movie } from "../../types/Movie.type";
+import { TrendingMovie } from "../../types/Movie.type";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock, faPlayCircle, faStar } from "@fortawesome/free-solid-svg-icons";
-import { getImageUrl } from "../../services/image.service";
 
-export const TrendingCard = ({ data }: { data: Movie }) => {
-  const imgUrl = getImageUrl(data.poster_path);
+export const TrendingCard = ({ data }: { data: TrendingMovie }) => {
   return (
     <div className="rounded-xl shadow-xl">
       <div className="relative">
-        <img src={imgUrl} alt={data.title} className="w-full h-[300px] rounded-xl" />
+        <img src={data.posterPath} alt={data.title} className="w-full h-[300px] rounded-xl" />
         <div className="absolute inset-0 bg-black opacity-50"></div>
 
         <div className="absolute top-2 w-full p-4">
@@ -17,9 +15,9 @@ export const TrendingCard = ({ data }: { data: Movie }) => {
               <FontAwesomeIcon icon={faClock} className="w-4 h-4 mr-1" />
               <h3 className="">{"3:12:00"}</h3>
             </div>
-            <div className="flex items-center gap-1 text-white">
-              <FontAwesomeIcon icon={faStar} className="w-4 h-4 ml-2 mr-1" />
-              <h3 className="">{data.popularity}</h3>
+            <div className="flex items-center gap-1 ">
+              <FontAwesomeIcon icon={faStar} className="w-4 h-4 ml-2 mr-1 text-yellow-500" />
+              <h3 className="text-white">{data.voteAverage.toFixed(1)}</h3>
             </div>
           </div>
         </div>
@@ -30,10 +28,10 @@ export const TrendingCard = ({ data }: { data: Movie }) => {
       </div>
       <div className="flex justify-between items-center mt-4">
         <h3 className="text-white text-lg font-bold ">{data.title}</h3>
-        <div className="flex space-x-2">
-          {data.genre_ids.map((genre, index) => (
-            <div key={index} className="bg-red-600  px-4 py-2 rounded-full text-sm">
-              <h3 className="text-white">{genre}</h3>
+        <div className="flex space-x-1">
+          {data.genres.map((genre) => (
+            <div key={genre.id} className="bg-red-600  p-2 rounded-md text-xs">
+              <h3 className="text-white">{genre.name}</h3>
             </div>
           ))}
         </div>
