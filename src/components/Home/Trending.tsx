@@ -1,15 +1,11 @@
-import { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { TrendingCard } from "../Card/TrendingCard";
 import { ThirdGrid } from "../Section/ThirdGrid";
 import { useTrendingMovies } from "../../hooks/useTrendingMovies";
-import { InitialLoadContext } from "../../context/InitialLoadContext";
 
 export const Trending = () => {
-  const { movieGenres } = useContext(InitialLoadContext);
-
-  const { results: movies } = useTrendingMovies(movieGenres);
+  const { results: movies } = useTrendingMovies();
 
   return (
     <section>

@@ -31,3 +31,12 @@ export const getTrendingMovies = async (options?: Record<string, unknown>) => {
     throw new Error(`Error - /movie/popular ${error.message}`);
   }
 };
+
+export const getNowPlayingMovies = async (options?: Record<string, unknown>) => {
+  try {
+    const data = await get<ResponseListMovieAPI>("/movie/now_playing", { ...options });
+    return data.results;
+  } catch (error) {
+    throw new Error(`Error - /movie/popular ${error.message}`);
+  }
+};

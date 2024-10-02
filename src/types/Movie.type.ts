@@ -22,15 +22,16 @@ export interface Movie {
   releaseDate: string;
   title: string;
   posterPath: string;
-  backdroPath: string;
   voteAverage: number;
-  voteCount: number;
-  popularity: number;
   originalLanguage: string;
 }
 
-export interface TrendingMovie extends Movie {
+export interface MovieWithGenres extends Movie {
   genres: MovieGenre[];
+}
+
+export interface NowPlayingMovie extends MovieWithGenres {
+  overview: string;
 }
 
 // export interface Movie {

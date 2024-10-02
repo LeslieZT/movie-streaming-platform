@@ -15,10 +15,9 @@ export const useMovieGenres = () => {
         });
         setResults(result);
       } catch (error) {
-        console.error("Error cargando los datos maestros:", error);
+        console.error("Error MovieGenres", error);
       }
     };
-
     loadMovieGenresData();
   }, []);
 

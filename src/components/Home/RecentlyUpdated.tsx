@@ -12,7 +12,6 @@ export default function RecentlyUpdatedShows() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const { results: shows } = useRecentlyUpdateSeries();
-  console.log(shows, "ggg");
 
   useEffect(() => {
     const handleResize = () => {

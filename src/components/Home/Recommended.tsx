@@ -1,13 +1,11 @@
-import { useEffect, useState } from "react";
 import { MovieCard } from "../Card/MovieCard";
 import { Movie } from "../../types/Movie.type";
 import { Serie } from "../../types/Serie.type";
 import { SerieCard } from "../Card/SerieCard";
-import { getRecommendedMovies } from "../../services/Movies.service";
-import { getRecommendedSeries } from "../../services/Serie.service";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { QuarterGrid } from "../Section/QuarterGrid";
+import { Category, useRecommended } from "../../hooks/userRecommended";
 
 const MoviesList = ({ movies }: { movies: Movie[] }) => (
   <>
@@ -26,30 +24,13 @@ const SeriesList = ({ series }: { series: Serie[] }) => (
 );
 
 export const Recommended = () => {
-  const [showing, setShowing] = useState("movies");
-  const [data, setData] = useState<Movie[] | Serie[]>([]);
+  const { result: data, activeCategory, setActiveCategory } = useRecommended();
 
-  const handleToggle = (type: string) => {
-    setShowing(type);
+  const categories: Category[] = ["Movies", "Series", "Animation"];
+
+  const handleCategoryClick = (type: Category) => {
+    setActiveCategory(type);
   };
-
-  const fetchMovies = async () => {
-    const moviesData = await getRecommendedMovies();
-    setData(moviesData.results);
-  };
-
-  const fetchSeries = async () => {
-    const seriesData = await getRecommendedSeries();
-    setData(seriesData.results);
-  };
-
-  useEffect(() => {
-    if (showing === "movies") {
-      fetchMovies();
-    } else {
-      fetchSeries();
-    }
-  }, [showing]);
 
   return (
     <section className="text-white">
@@ -57,10 +38,19 @@ export const Recommended = () => {
         <div className="flex gap-12">
           <h3 className="text-xl font-bold">Recommended</h3>
           <div className="buttons-filter flex gap-8">
-            <button className="" onClick={() => handleToggle("movies")}>
-              Movies
-            </button>
-            <button onClick={() => handleToggle("series")}>Series</button>
+            {categories.map((category) => (
+              <button
+                key={category}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
+                  activeCategory === category
+                    ? "bg-red-600 text-white"
+                    : "text-gray-300 hover:text-white border border-gray-600 hover:border-gray-500"
+                }`}
+                onClick={() => handleCategoryClick(category)}
+              >
+                {category}
+              </button>
+            ))}
           </div>
         </div>
         <div className="flex items-center text-xl opacity-50 font-bold">
@@ -70,10 +60,10 @@ export const Recommended = () => {
       </div>
       <QuarterGrid>
         {(() => {
-          switch (showing) {
-            case "movies":
+          switch (activeCategory) {
+            case "Movies":
               return <MoviesList movies={data as Movie[]} />;
-            case "series":
+            case "Series":
               return <SeriesList series={data as Serie[]} />;
             default:
               return <MoviesList movies={data as Movie[]} />;

@@ -11,18 +11,16 @@ export const useRecentlyUpdateSeries = () => {
       try {
         const response = await getRecentlyUpdateSeries();
         const data: RecentlyUpdateSerie[] = response.map((serie: SerieAPI) => {
-          return {
+          const item: RecentlyUpdateSerie = {
             id: serie.id,
             firtAirDate: serie.first_air_date,
             name: serie.name,
             posterPath: `${IMAGE_API_URL}${serie.poster_path}`,
-            backdroPath: `${IMAGE_API_URL}${serie.backdrop_path}`,
             voteAverage: serie.vote_average,
-            voteCount: serie.vote_count,
-            popularity: serie.popularity,
             originalLanguage: serie.original_language,
             overview: serie.overview,
           };
+          return item;
         });
 
         setResults(data);

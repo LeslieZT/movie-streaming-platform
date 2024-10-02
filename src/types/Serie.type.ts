@@ -20,10 +20,7 @@ export interface Serie {
   firtAirDate: string;
   name: string;
   posterPath: string;
-  backdroPath: string;
   voteAverage: number;
-  voteCount: number;
-  popularity: number;
   originalLanguage: string;
 }
 

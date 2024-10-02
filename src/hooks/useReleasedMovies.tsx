@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { MovieAPI, Movie } from "../types/Movie.type";
+import { Movie } from "../types/Movie.type";
 import { getReleasedMovies } from "../services/Movies.service";
-import { IMAGE_API_URL } from "../constants/constants";
+import { mapMovies } from "../mapper/Movie.mapper";
 
 export const useReleasedMovies = () => {
   const [results, setResults] = useState<Movie[]>([]);
@@ -11,26 +11,12 @@ export const useReleasedMovies = () => {
       try {
         const response = await getReleasedMovies();
         const first4Elements = response.slice(0, 4);
-        const data: Movie[] = first4Elements.map((movie: MovieAPI) => {
-          return {
-            id: movie.id,
-            releaseDate: movie.release_date,
-            title: movie.title,
-            posterPath: `${IMAGE_API_URL}${movie.poster_path}`,
-            backdroPath: `${IMAGE_API_URL}${movie.backdrop_path}`,
-            voteAverage: movie.vote_average,
-            voteCount: movie.vote_count,
-            popularity: movie.popularity,
-            originalLanguage: movie.original_language,
-          };
-        });
-
+        const data: Movie[] = mapMovies(first4Elements);
         setResults(data);
       } catch (error) {
-        console.error("Error cargando los datos maestros:", error);
+        console.error("Error Released Movies:", error);
       }
     };
-
     loadMovieData();
   }, []);
 

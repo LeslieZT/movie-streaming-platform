@@ -1,13 +1,13 @@
-import { TrendingMovie } from "../../types/Movie.type";
+import { MovieWithGenres } from "../../types/Movie.type";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock, faPlayCircle, faStar } from "@fortawesome/free-solid-svg-icons";
 
-export const TrendingCard = ({ data }: { data: TrendingMovie }) => {
+export const TrendingCard = ({ data }: { data: MovieWithGenres }) => {
   return (
     <div className="rounded-xl shadow-xl">
       <div className="relative">
-        <img src={data.posterPath} alt={data.title} className="w-full h-[300px] rounded-xl" />
-        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <img src={data.posterPath} alt={data.title} className="w-full h-[300px]  rounded-xl" />
+        <div className="absolute inset-0 bg-black opacity-30"></div>
 
         <div className="absolute top-2 w-full p-4">
           <div className="flex justify-between">
@@ -30,7 +30,7 @@ export const TrendingCard = ({ data }: { data: TrendingMovie }) => {
         <h3 className="text-white text-lg font-bold ">{data.title}</h3>
         <div className="flex space-x-1">
           {data.genres.map((genre) => (
-            <div key={genre.id} className="bg-red-600  p-2 rounded-md text-xs">
+            <div key={genre.id} className="bg-red-600  p-2 rounded-md text-xs flex items-center">
               <h3 className="text-white">{genre.name}</h3>
             </div>
           ))}

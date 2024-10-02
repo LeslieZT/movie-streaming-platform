@@ -11,10 +11,10 @@ export const HomePage = () => {
       <MovieCarousel />
       <div className="lg:w-[70%] lg:m-auto sm:mx-4 flex flex-col gap-16">
         <RecentlyUpdatedShows />
-        {/* <Trending />  */}
+        <Trending />
         <ReleasedMovies />
         <ReleasedSeries />
-        {/* <Recommended /> */}
+        <Recommended />
       </div>
     </>
   );

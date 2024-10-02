@@ -2,32 +2,10 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { MovieCarouselItem } from "./MovieCarouselItem";
+import { useNowPlayingMovies } from "../../hooks/useNowPlayingMovies";
 
 export const MovieCarousel = () => {
-  const movies = [
-    {
-      title: "Avatar: The Way of Water",
-      image: "./src/assets/avatar.jpeg",
-      genres: ["Action", "Adventure", "Science Fiction"],
-      year: 2022,
-      duration: "3:12:00",
-      rating: 8.5,
-      synopsis:
-        "Set more than a decade after the events of the first film, learn the story of the Sully family (Jake, Neytiri, and their kids), the trouble that follows them, the lengths they go to keep each other safe, the battles they fight to stay alive, and the tragedies they endure.",
-    },
-    {
-      title: "Movie 2",
-      image: "./src/assets/69c97d0b10eb9431b4cf84df3377b246.png",
-      genres: ["Action", "Adventure", "Science Fiction"],
-      year: 2022,
-      duration: "3:12:00",
-      rating: 8.5,
-      synopsis:
-        "Set more than a decade after the events of the first film, learn the story of the Sully family (Jake, Neytiri, and their kids), the trouble that follows them, the lengths they go to keep each other safe, the battles they fight to stay alive, and the tragedies they endure.",
-    },
-    // ... más películas
-  ];
-
+  const { results: movies } = useNowPlayingMovies();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const prevSlide = () => {
@@ -43,6 +21,7 @@ export const MovieCarousel = () => {
   };
 
   const currentMovie = movies[currentIndex];
+  if (currentMovie === undefined) return <div>Loading...</div>;
 
   return (
     <div className="relative h-[750px] w-full m-auto group">
@@ -60,6 +39,7 @@ export const MovieCarousel = () => {
           <div
             key={index}
             className={`h-4 rounded-full ${index === currentIndex ? "bg-red-600 w-8" : "bg-white/50 w-4"}`}
+            onClick={() => setCurrentIndex(index)}
           ></div>
         ))}
       </div>
