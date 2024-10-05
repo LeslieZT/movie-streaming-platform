@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
-import { MovieWithGenres } from "../types/Movie.type";
-import { getTrendingMovies } from "../services/Movies.service";
-import { InitialLoadContext } from "../context/InitialLoadContext";
-import { mapMoviesWithGenres } from "../mapper/Movie.mapper";
+import { MovieWithGenres } from "../../types/Movie.type";
+import { getTrendingMovies } from "../../services/Movies.service";
+import { InitialLoadContext } from "../../context/InitialLoadContext";
+import { mapMoviesWithGenres } from "../../mapper/Movie.mapper";
 
 export const useTrendingMovies = () => {
   const { movieGenres } = useContext(InitialLoadContext);

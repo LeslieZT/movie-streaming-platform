@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Movie } from "../types/Movie.type";
-import { getReleasedMovies } from "../services/Movies.service";
-import { mapMovies } from "../mapper/Movie.mapper";
+import { Movie } from "../../types/Movie.type";
+import { getReleasedMovies } from "../../services/Movies.service";
+import { mapMovies } from "../../mapper/Movie.mapper";
 
 export const useReleasedMovies = () => {
   const [results, setResults] = useState<Movie[]>([]);

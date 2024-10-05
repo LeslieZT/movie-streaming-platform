@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { MainLayout } from "../Layout/MainLayout";
 import { DetailMoviePage, ErrorPage, HomePage } from "../pages";
+import { DetailSeriePage } from "../pages/DetailSeriePage";
 
 const routes = {
   path: "/",
@@ -15,8 +16,17 @@ const routes = {
       path: "/movies",
       children: [
         {
-          path: "/movies/:id",
+          path: "/movies/:idMovie",
           element: <DetailMoviePage />,
+        },
+      ],
+    },
+    {
+      path: "/series",
+      children: [
+        {
+          path: "/series/:idSerie",
+          element: <DetailSeriePage />,
         },
       ],
     },

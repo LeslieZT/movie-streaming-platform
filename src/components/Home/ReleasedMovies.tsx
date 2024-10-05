@@ -3,7 +3,7 @@ import { MovieCard } from "../Card/MovieCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { QuarterGrid } from "../Section/QuarterGrid";
-import { useReleasedMovies } from "../../hooks/useReleasedMovies";
+import { useReleasedMovies } from "../../hooks/home/useReleasedMovies";
 
 export const ReleasedMovies = () => {
   const { results: movies } = useReleasedMovies();

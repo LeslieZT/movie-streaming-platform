@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { RecentlyUpdatedCard } from "../Card/RecentlyUpdatedCard";
-import { useRecentlyUpdateSeries } from "../../hooks/useRecentlyUpdatedSeries";
+import { useRecentlyUpdateSeries } from "../../hooks/home/useRecentlyUpdatedSeries";
 
 export default function RecentlyUpdatedShows() {
   const [startIndex, setStartIndex] = useState(0);

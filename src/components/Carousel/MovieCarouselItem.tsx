@@ -10,7 +10,7 @@ export const MovieCarouselItem = ({ data }: { data: NowPlayingMovie }) => {
       className="w-full h-full bg-center bg-cover duration-500"
     >
       <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/3">
+      <div className="absolute top-36 md:top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/3">
         <div className="flex space-x-4 justify-center">
           <button className="bg-red-600 text-white px-4 py-3 rounded-md flex items-center gap-2">
             Watch Now
@@ -22,9 +22,9 @@ export const MovieCarouselItem = ({ data }: { data: NowPlayingMovie }) => {
           </button>
         </div>
       </div>
-      <div className="absolute bottom-16 lg:bottom-1/4 lg:left-52 text-white">
+      <div className="absolute bottom-28 md:bottom-32 lg:bottom-1/4 lg:left-52 text-white min-w-[22rem] p-4">
         <h2 className="text-4xl font-bold mb-6">{data.title}</h2>
-        <div className="flex flex-col lg:flex-row lg:items-center lg:space-x-8 mb-8">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:space-x-8 mb-8 gap-3">
           <div className="flex space-x-3">
             {data.genres.map((genre) => (
               <div key={genre.id} className="bg-white  px-3 py-2 rounded-full text-sm">

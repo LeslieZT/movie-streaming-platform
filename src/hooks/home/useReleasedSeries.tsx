@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Serie } from "../types/Serie.type";
-import { getReleasedSeries } from "../services/Serie.service";
-import { mapSeries } from "../mapper/Series.mapper";
+import { Serie } from "../../types/Serie.type";
+import { getReleasedSeries } from "../../services/Serie.service";
+import { mapSeries } from "../../mapper/Series.mapper";
 
 export const useReleasedSeries = () => {
   const [results, setResults] = useState<Serie[]>([]);

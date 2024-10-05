@@ -9,7 +9,7 @@ export const HomePage = () => {
   return (
     <>
       <MovieCarousel />
-      <div className="lg:w-[70%] lg:m-auto sm:mx-4 flex flex-col gap-16">
+      <div className="lg:w-[70%] lg:m-auto sm:mx-4 flex flex-col gap-16 p-4">
         <RecentlyUpdatedShows />
         <Trending />
         <ReleasedMovies />

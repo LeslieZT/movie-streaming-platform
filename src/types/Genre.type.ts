@@ -2,10 +2,20 @@ export interface MovieGenreAPI {
   id: number;
   name: string;
 }
-export interface MovieGenre {
+
+export interface SerieGenreAPI {
+  id: number;
+  name: string;
+}
+
+export interface Genre {
   id: number;
   name: string;
 }
 export interface MovieGenres {
-  [key: string]: MovieGenre;
+  [key: string]: Genre;
+}
+
+export interface SerieGenres {
+  [key: string]: Genre;
 }

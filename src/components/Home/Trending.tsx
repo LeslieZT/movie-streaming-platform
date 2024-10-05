@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { TrendingCard } from "../Card/TrendingCard";
 import { ThirdGrid } from "../Section/ThirdGrid";
-import { useTrendingMovies } from "../../hooks/useTrendingMovies";
+import { useTrendingMovies } from "../../hooks/home/useTrendingMovies";
 
 export const Trending = () => {
   const { results: movies } = useTrendingMovies();

@@ -2,7 +2,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { SerieCard } from "../Card/SerieCard";
 import { QuarterGrid } from "../Section/QuarterGrid";
-import { useReleasedSeries } from "../../hooks/useReleasedSeries";
+import { useReleasedSeries } from "../../hooks/home/useReleasedSeries";
 
 export const ReleasedSeries = () => {
   const { results: series } = useReleasedSeries();

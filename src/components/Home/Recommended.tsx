@@ -5,7 +5,7 @@ import { SerieCard } from "../Card/SerieCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { QuarterGrid } from "../Section/QuarterGrid";
-import { Category, useRecommended } from "../../hooks/userRecommended";
+import { Category, useRecommended } from "../../hooks/home/userRecommended";
 
 const MoviesList = ({ movies }: { movies: Movie[] }) => (
   <>
@@ -34,10 +34,10 @@ export const Recommended = () => {
 
   return (
     <section className="text-white">
-      <div className="header-recommended flex justify-between mb-8">
-        <div className="flex gap-12">
+      <div className="flex justify-between mb-8">
+        <div className="flex flex-col gap-4 md:flex-row md:gap-12">
           <h3 className="text-xl font-bold">Recommended</h3>
-          <div className="buttons-filter flex gap-8">
+          <div className="flex gap-1 md:gap-8">
             {categories.map((category) => (
               <button
                 key={category}

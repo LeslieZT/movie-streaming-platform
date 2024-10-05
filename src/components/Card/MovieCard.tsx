@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export const MovieCard = ({ data }: { data: Movie }) => {
   return (
-    <Link to={`movies/${data.id}`} className="">
+    <Link to={`/movies/${data.id}`} className="">
       <div className="flex flex-col">
         <img src={data.posterPath} alt={data.title} className="w-full h-[344px] mb-4 rounded-md" />
         <div className="flex justify-between items-center gap-4">

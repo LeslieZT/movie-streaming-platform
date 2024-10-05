@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
-import { NowPlayingMovie } from "../types/Movie.type";
-import { getNowPlayingMovies } from "../services/Movies.service";
-import { InitialLoadContext } from "../context/InitialLoadContext";
-import { mapNowPlayingMovies } from "../mapper/Movie.mapper";
+import { NowPlayingMovie } from "../../types/Movie.type";
+import { getNowPlayingMovies } from "../../services/Movies.service";
+import { InitialLoadContext } from "../../context/InitialLoadContext";
+import { mapNowPlayingMovies } from "../../mapper/Movie.mapper";
 
 export const useNowPlayingMovies = () => {
   const { movieGenres } = useContext(InitialLoadContext);

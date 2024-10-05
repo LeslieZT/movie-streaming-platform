@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { SerieAPI, RecentlyUpdateSerie } from "../types/Serie.type";
-import { IMAGE_API_URL } from "../constants/constants";
-import { getRecentlyUpdateSeries } from "../services/Serie.service";
+import { SerieAPI, RecentlyUpdateSerie } from "../../types/Serie.type";
+import { IMAGE_API_URL } from "../../constants/constants";
+import { getRecentlyUpdateSeries } from "../../services/Serie.service";
 
 export const useRecentlyUpdateSeries = () => {
   const [results, setResults] = useState<RecentlyUpdateSerie[]>([]);
