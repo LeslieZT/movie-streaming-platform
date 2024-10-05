@@ -1,4 +1,4 @@
-import { DEFAULT_IMAGE, IMAGE_API_URL } from "../constants/constants";
+import { DEFAULT_AVATAR, IMAGE_API_URL } from "../constants/constants";
 import { Review, ReviewAPI } from "../types/Review.type";
 
 export const mapComments = (comments: ReviewAPI[]) => {
@@ -8,7 +8,7 @@ export const mapComments = (comments: ReviewAPI[]) => {
       author: comment.author,
       avatar: comment.author_details.avatar_path
         ? `${IMAGE_API_URL}${comment.author_details.avatar_path}`
-        : DEFAULT_IMAGE,
+        : DEFAULT_AVATAR,
       createdAt: comment.created_at,
       content: comment.content,
       likes: comment.author_details.rating,

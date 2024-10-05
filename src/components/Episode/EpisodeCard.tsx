@@ -3,7 +3,6 @@ import { Season } from "../../types/Serie.type";
 import { faCalendar, faPlayCircle, faStar } from "@fortawesome/free-solid-svg-icons";
 
 export const EpisodeCard = ({ data }: { data: Season }) => {
-  console.log(data);
   return (
     <div key={data.id} className="flex items-center gap-4">
       <img src={data.posterPath} alt={`${data.name} poster`} className="w-24 h-auto object-cover rounded-md" />

@@ -16,10 +16,10 @@ export const SimilarMovies = () => {
 
   return (
     <section>
-      <h2 className="text-2xl font-bold text-white mb-12">Similar Movies</h2>
+      <h2 className="text-2xl font-bold text-white mt-7">Similar Movies</h2>
       <QuarterGrid>
         {movies.map((movie) => (
-          <MovieCard key={movie.id} data={movie} link={`movies/${movie.id}`} />
+          <MovieCard key={movie.id} data={movie} />
         ))}
       </QuarterGrid>
     </section>

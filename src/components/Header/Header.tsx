@@ -2,7 +2,8 @@ import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons/faSearch";
 import { faBars, faBell } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { debounce } from "../../utils/debounce";
 
 const NavLinks = () => (
   <>
@@ -36,11 +37,16 @@ const NavLinks = () => (
   </>
 );
 
-export const Header = () => {
+export const Header = ({ onSearch }: { onSearch: (word: string) => void }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
+  };
+  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    debounce(() => {
+      onSearch(e.target.value);
+    }, 800)();
   };
 
   return (
@@ -84,6 +90,7 @@ export const Header = () => {
             type="text"
             className="bg-white text-black rounded-full px-4 py-2 min-w-72 md:w-96"
             placeholder="Search movies..."
+            onChange={handleInput}
           />
           <button className="absolute right-3 top-2">
             <FontAwesomeIcon icon={faSearch} className="w-6 h-6 text-black" />

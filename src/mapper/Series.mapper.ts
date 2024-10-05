@@ -1,4 +1,4 @@
-import { IMAGE_API_URL } from "../constants/constants";
+import { DEFAULT_POSTER, IMAGE_API_URL } from "../constants/constants";
 import { Serie, SerieAPI } from "../types/Serie.type";
 
 export const mapSeries = (data: SerieAPI[]): Serie[] => {
@@ -7,7 +7,7 @@ export const mapSeries = (data: SerieAPI[]): Serie[] => {
       id: serie.id,
       firtAirDate: serie.first_air_date,
       name: serie.name,
-      posterPath: `${IMAGE_API_URL}${serie.poster_path}`,
+      posterPath: serie.poster_path ? `${IMAGE_API_URL}${serie.poster_path}` : DEFAULT_POSTER,
       voteAverage: serie.vote_average,
       originalLanguage: serie.original_language,
     };

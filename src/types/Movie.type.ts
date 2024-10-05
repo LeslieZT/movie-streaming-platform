@@ -25,6 +25,7 @@ export interface Movie {
   posterPath: string;
   voteAverage: number;
   originalLanguage: string;
+  backdropPath: string;
 }
 
 export interface MovieWithGenres extends Movie {

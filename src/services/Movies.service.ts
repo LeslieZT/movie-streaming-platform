@@ -87,3 +87,12 @@ export const getMovieComents = async (id: string, options?: Record<string, unkno
     throw new Error(`Error - /movie/${id}/reviews ${error.message}`);
   }
 };
+
+export const searchMovies = async (query: string, options?: Record<string, unknown>) => {
+  try {
+    const data = await get<ResponseListMovieAPI>(`/search/movie?query=${query}&language=en-US`, { ...options });
+    return data.results;
+  } catch (error) {
+    throw new Error(`Error - /search/movie ${error.message}`);
+  }
+};
