@@ -4,7 +4,6 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 export const MovieCard = ({ data }: { data: Movie }) => {
-  console.log(data);
   return (
     <Link to={`/movies/${data.id}`} className="">
       <div className="flex flex-col">
